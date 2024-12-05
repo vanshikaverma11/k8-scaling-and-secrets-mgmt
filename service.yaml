@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  selector:
+    app: myapp
+  ports:
+    - protocol: TCP
+      port: 80         # The port exposed by the service
+      targetPort: 3000  # The port on the container the app listens to
+  type: ClusterIP

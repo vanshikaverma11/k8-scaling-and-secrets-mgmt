@@ -28,6 +28,17 @@ spec:
           name: http
         resources:
           limits:
-            cpu: 50m
+            cpu: 10m
           requests:
-            cpu: 20m
+            cpu: 10m  # Adjusted this to match the limit
+        env:
+        - name: MYAPP_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: myapp-secret
+              key: username
+        - name: MYAPP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: myapp-secret
+              key: password
